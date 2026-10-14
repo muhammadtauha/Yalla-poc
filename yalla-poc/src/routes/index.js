@@ -1,0 +1,20 @@
+'use strict';
+const express = require('express');
+module.exports = (svc) => {
+  const r = express.Router();
+  const feed = require('../controllers/feedController')(svc);
+  const inter = require('../controllers/interactionController')(svc);
+  const prof = require('../controllers/profileController')(svc);
+  r.get('/health', (_q, res) => res.json({ ok: true }));
+  r.get('/feed', feed.feed);
+  r.get('/recommendations', feed.recommendations);
+  r.post('/interactions', inter.create);
+  r.get('/interactions/recent', inter.activity);
+  r.get('/profile', prof.profile);
+  r.get('/profile/affinity', prof.affinity);
+  r.get('/profile/interests', prof.interests);
+  r.get('/users', prof.users);
+  r.get('/creators', prof.creators);
+  r.post('/dev/reset', prof.reset);
+  return r;
+};

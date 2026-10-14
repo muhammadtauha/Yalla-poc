@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yalla feed lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="wordmark">Yalla<i></i></span><span class="tag">Feed lab</span></div>
+  <div class="who">
+    <label class="sr" for="user">Viewing as</label>
+    <select id="user"></select>
+    <button id="reset" class="ghost" title="Clear this user's history and learned preferences">Reset profile</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="feedcol" aria-label="Feed">
+    <div class="feedbar">
+      <div>
+        <h1>Your feed</h1>
+        <p id="hint" class="hint">Like, watch or skip a post, then refresh the feed to see it re-rank.</p>
+      </div>
+      <button id="refresh" class="primary"><span>Refresh feed</span><b id="pending" hidden>0</b></button>
+    </div>
+    <div id="feed" class="feed"></div>
+    <p class="foot">Videos play at 5× speed in this lab. Ranking is rule-based; no ML model.</p>
+  </section>
+
+  <aside class="learned" aria-label="What Yalla has learned">
+    <details id="learnedbox" open>
+      <summary>What Yalla has learned</summary>
+      <div class="panel">
+        <h2>Creators</h2>
+        <div id="creators" class="bars"></div>
+        <h2>Topics</h2>
+        <div id="topics" class="bars"></div>
+        <h2>Recent actions</h2>
+        <ol id="log" class="log"></ol>
+      </div>
+    </details>
+  </aside>
+</main>
+
+<script src="api-http.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

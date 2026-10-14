@@ -1,0 +1,16 @@
+{
+  "name": "yalla-feed-poc",
+  "version": "1.0.0",
+  "description": "Behaviour-based personalized feed POC (rule/score based, no ML)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/poc.test.js",
+    "build:demo": "node scripts/build-demo.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.3"
+  }
+}
